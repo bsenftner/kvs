@@ -10,7 +10,8 @@ CKeyValueStore* mp_config = new CKeyValueStore(configPath.c_str(), err_callback,
 mp_config->Init();
 ```
 
-The db is lazy loaded, upon first read/write of a key/value. The error callback is called when the lazy loading has issues. 
+The db is lazy loaded, upon first read/write of a key/value. The error callback is called when the lazy loading has issues.
+If the db has load issues, the provided default values are used for the keyValeyStore's operation. 
 
 When reading a key/value a default value is given in case that key does not exist, for example because the db failed to load. 
 
