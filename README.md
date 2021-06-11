@@ -5,8 +5,10 @@ A simple C++ key value store on top of sqlite3, useful for application configura
 `typedef void(*KVS_ERROR_CALLBACK) (void* p_object);`
 
 ## Create a new KeyValueStore to manage key/values like this:
-`CKeyValueStore* mp_config = new CKeyValueStore(configPath.c_str(), err_callback, err_callback_data);`
-`mp_config->Init();`
+{
+CKeyValueStore* mp_config = new CKeyValueStore(configPath.c_str(), err_callback, err_callback_data);
+mp_config->Init();
+}
 
 The db is lazy loaded, upon first read/write of a key/value. The error callback is called when the lazy loading has issues. 
 
