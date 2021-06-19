@@ -1,6 +1,12 @@
 # kvs
 A simple C++ key value store on top of sqlite3, useful for application configurations.
 
+The basic idea is a std::map like facility one can put booleans, integers, floats, strings, and binary blobs into, each 
+with a unique user defined string, the key, used for retrieval. The facility is called a "store", and it allows the user
+to store any amount of keyed data. When created a key/value is maintained in memory, with an sqlite3 backing database. 
+Binary data is maintained in RAM as binary, but as base64 when written to the db. 
+There is also an optional, simplistic encryption subsystem; simple enough for easy replacement, and good enough to stop scrip-kiddies.  
+
 ## There's a callback incase the database won't open or has read errors:
 `typedef void(*KVS_ERROR_CALLBACK) (void* p_object);`
 
